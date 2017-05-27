@@ -38,8 +38,9 @@ for key, file in enumerate(csv_files):
     total_count = len(rows)
     print("\t" + file[file.rfind("/")+1:] + " => " + str(total_count) + " rows")
     if not arguments.noheader:
+        header = rows.pop(0)
         if(key == 0):
-            writer.writerow(rows.pop(0));
+            writer.writerow(header)
     for row in rows:
         writer.writerow(row);
 outputFile.close()
